@@ -24,7 +24,7 @@ jobs:
       with:
         python-version: "3.12"
     - name: Install dependencies
-      run: pip install -r source/requirements.txt
+      run: pip install -r source/requirement.txt
     - name: Check linting
       working-directory: source
       run: ruff check .  
