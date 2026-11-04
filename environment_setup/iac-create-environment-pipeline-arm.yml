@@ -2,7 +2,7 @@ pr: none
 trigger: none
 
 variables:
-- group: group_labo3_dsrp
+- group: mlops-wsh-dsrp
 
 stages:
 - stage: 'Dev'
