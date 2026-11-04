@@ -25,3 +25,41 @@ stages:
         overrideParameters: '-baseName $(BASE_NAME) -location $(LOCATION) -workspace $(WORKSPACE_NAME)'
         deploymentMode: 'Incremental'
       displayName: 'Deploy OH resources to Azure'
+
+- stage: Build
+
+  dependsOn: Dev
+
+  jobs:
+
+  - job: Build_ML
+
+    pool:
+      vmImage: ubuntu-latest
+
+    steps:
+
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '3.11'
+
+    - script: |
+        pip install -r source/requirements.txt
+      displayName: Install dependencies
+
+    - script: |
+        ruff check .
+      displayName: Ruff Check
+
+    - script: |
+        pytest
+      displayName: Run Tests
+
+    - script: |
+        python src/train.py
+      displayName: Train Model
+
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: artifacts
+        artifact: model
