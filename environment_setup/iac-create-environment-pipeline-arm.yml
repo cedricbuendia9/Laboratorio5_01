@@ -56,7 +56,7 @@ stages:
       displayName: Run Tests
 
     - script: |
-        python src/train.py
+        python source/train.py
       displayName: Train Model
 
     - task: PublishPipelineArtifact@1
