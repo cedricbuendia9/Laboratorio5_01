@@ -1,6 +1,5 @@
-from sklearn.datasets import load_diabetes
-
 from model import create_model
+from sklearn.datasets import load_diabetes
 
 
 def test_prediction():

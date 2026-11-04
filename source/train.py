@@ -1,11 +1,10 @@
 from pathlib import Path
 
 import joblib
+from model import create_model
 from sklearn.datasets import load_diabetes
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
-
-from model import create_model
 
 
 def train():
@@ -34,10 +33,7 @@ def train():
 
     Path("artifacts").mkdir(exist_ok=True)
 
-    joblib.dump(
-        model,
-        "artifacts/model.pkl"
-    )
+    joblib.dump(model, "artifacts/model.pkl")
 
     print("Modelo guardado")
 

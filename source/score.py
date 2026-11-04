@@ -15,7 +15,6 @@ def predict(features):
 
 
 if __name__ == "__main__":
-
     sample = [
         0.038,
         0.050,
