@@ -43,4 +43,3 @@ jobs:
       with:
         push: true
         tags: ghcr.io/cedricbuendia9/laboratorio2:latest
-
