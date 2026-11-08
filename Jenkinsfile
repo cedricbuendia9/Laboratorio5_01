@@ -11,14 +11,14 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t diabetes-model .'
+                sh 'docker build -t diabetes-model .'
             }
         }
 
         stage('Train Model') {
             steps {
-                bat '''
-                docker rm -f diabetes-container || exit 0
+                sh '''
+                docker rm -f diabetes-container || true
                 docker run --name diabetes-container diabetes-model
                 '''
             }
