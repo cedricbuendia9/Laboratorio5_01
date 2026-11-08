@@ -32,4 +32,10 @@ pipeline {
             }
         }
     }
+
+    post {
+        success {
+            archiveArtifacts artifacts: 'artifacts/model.pkl', fingerprint: true
+        }
+    }
 }
