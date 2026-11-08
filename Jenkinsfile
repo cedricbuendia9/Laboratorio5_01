@@ -5,19 +5,30 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'pip3 install -r source/requirements.txt'
+                sh '''
+                python3 -m venv venv
+                . venv/bin/activate
+                pip install --upgrade pip
+                pip install -r source/requirements.txt
+                '''
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'pytest tests/'
+                sh '''
+                . venv/bin/activate
+                pytest tests/
+                '''
             }
         }
 
         stage('Train Model') {
             steps {
-                sh 'python3 source/train.py'
+                sh '''
+                . venv/bin/activate
+                python source/train.py
+                '''
             }
         }
     }
