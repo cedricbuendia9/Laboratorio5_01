@@ -5,19 +5,21 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                echo 'Codigo descargado'
+                echo 'Codigo descargado desde GitHub'
             }
         }
 
-        stage('Ver archivos') {
+        stage('Verificar Estructura') {
             steps {
                 sh 'ls -la'
+                sh 'find .'
             }
         }
 
-        stage('Mostrar Python') {
+        stage('Verificar Modelo') {
             steps {
-                sh 'python --version || python3 --version'
+                sh 'test -f artifacts/model.pkl'
+                echo 'Modelo encontrado'
             }
         }
     }
