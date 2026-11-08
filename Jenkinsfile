@@ -12,7 +12,12 @@ pipeline {
         stage('Ver archivos') {
             steps {
                 sh 'ls -la'
-                sh 'find .'
+            }
+        }
+
+        stage('Mostrar Python') {
+            steps {
+                sh 'python --version || python3 --version'
             }
         }
     }
