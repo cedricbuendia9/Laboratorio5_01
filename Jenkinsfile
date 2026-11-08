@@ -3,23 +3,21 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
+        stage('Install Dependencies') {
             steps {
-                echo 'Codigo descargado desde GitHub'
+                sh 'pip3 install -r source/requirements.txt'
             }
         }
 
-        stage('Verificar Estructura') {
+        stage('Run Tests') {
             steps {
-                sh 'ls -la'
-                sh 'find .'
+                sh 'pytest tests/'
             }
         }
 
-        stage('Verificar Modelo') {
+        stage('Train Model') {
             steps {
-                sh 'test -f artifacts/model.pkl'
-                echo 'Modelo encontrado'
+                sh 'python3 source/train.py'
             }
         }
     }
