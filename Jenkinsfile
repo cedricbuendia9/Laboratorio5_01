@@ -5,22 +5,14 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                echo 'Obteniendo codigo'
+                echo 'Codigo descargado'
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Ver archivos') {
             steps {
-                sh 'docker build -t diabetes-model .'
-            }
-        }
-
-        stage('Train Model') {
-            steps {
-                sh '''
-                docker rm -f diabetes-container || true
-                docker run --name diabetes-container diabetes-model
-                '''
+                sh 'ls -la'
+                sh 'find .'
             }
         }
     }
