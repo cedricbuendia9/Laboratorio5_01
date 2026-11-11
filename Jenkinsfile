@@ -51,9 +51,9 @@ pipeline {
                 docker run -d \
                 --name diabetes-api \
                 -p 5000:5000 \
+                --restart unless-stopped \
                 diabetes-model
-                '''
-                }
+            '''
         }
 
 
