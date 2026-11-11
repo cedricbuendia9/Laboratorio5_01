@@ -13,7 +13,8 @@ def predict():
     prediction = model.predict([data])
 
     return jsonify({
-        "prediction": float(prediction[0])
+        "prediction": float(prediction[0]),
+        "version": "2.0"
     })
 
 app.run(host="0.0.0.0", port=5000)
