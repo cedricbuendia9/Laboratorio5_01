@@ -17,4 +17,6 @@ COPY . .
 
 RUN pip install -r source/requirements.txt
 
-CMD ["python", "source/score.py"]
+EXPOSE 5000
+
+CMD ["python", "source/app.py"]
