@@ -42,6 +42,21 @@ pipeline {
                 sh 'docker run --rm diabetes-model'
             }
         }
+        stage('Deploy API') {
+            steps {
+                sh '''
+                docker stop diabetes-api || true
+                docker rm diabetes-api || true
+
+                docker run -d \
+                --name diabetes-api \
+                -p 5000:5000 \
+                diabetes-model
+                '''
+                }
+        }
+
+
     }
 
     post {
