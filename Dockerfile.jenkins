@@ -9,4 +9,7 @@ RUN apt-get update && \
     python3-venv \
     docker.io
 
+RUN groupadd -f docker && \
+    usermod -aG docker jenkins
+
 USER jenkins
