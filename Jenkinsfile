@@ -54,8 +54,8 @@ pipeline {
                 --restart unless-stopped \
                 diabetes-model
             '''
+            }
         }
-
 
     }
 
