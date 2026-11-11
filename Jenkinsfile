@@ -37,11 +37,11 @@ pipeline {
             }
         }
 
-        stage('Run Container') {
-            steps {
-                sh 'docker run --rm diabetes-model'
-            }
-        }
+        //stage('Run Container') {
+        //    steps {
+        //        sh 'docker run --rm diabetes-model'
+        //    }
+        //}
         stage('Deploy API') {
             steps {
                 sh '''
