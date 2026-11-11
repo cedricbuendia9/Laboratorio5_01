@@ -17,3 +17,6 @@ def predict():
     })
 
 app.run(host="0.0.0.0", port=5000)
+@app.route("/")
+def home():
+    return "API Diabetes funcionando correctamente"
