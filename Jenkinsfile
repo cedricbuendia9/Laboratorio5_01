@@ -31,6 +31,17 @@ pipeline {
                 '''
             }
         }
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t diabetes-model .'
+            }
+        }
+
+        stage('Run Container') {
+            steps {
+                sh 'docker run --rm diabetes-model'
+            }
+        }
     }
 
     post {
