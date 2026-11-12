@@ -14,7 +14,7 @@ def predict():
 
     return jsonify({
         "prediction": float(prediction[0]),
-        "version": "3.0"
+        "version": "4.0"
     })
 
 app.run(host="0.0.0.0", port=5000)
